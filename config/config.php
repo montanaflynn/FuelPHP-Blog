@@ -41,7 +41,7 @@ return array(
 	 *
 	 * Set this to false or remove if you using mod_rewrite.
 	 */
-	'index_file'  => 'index.php',
+	'index_file'  => false,
 
 	'profiling'  => false,
 
@@ -103,7 +103,7 @@ return array(
 	 */
 	'security' => array(
 		'csrf_autoload'    => false,
-		'csrf_token_key'   => 'fuel_csrf_token',
+		'csrf_token_key'   => '45f572a83986cf1f5a8af070c12c63d3e7fa252f',
 		'csrf_expiration'  => 0,
 		'uri_filter'       => array('htmlentities'),
 
@@ -185,7 +185,9 @@ return array(
 		 * );
 		 */
 		'packages'  => array(
-			//'orm',
+			'orm',
+			'auth',
+			'email',
 		),
 
 		/**
