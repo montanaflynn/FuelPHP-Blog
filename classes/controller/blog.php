@@ -9,9 +9,11 @@
  * @package  app
  * @extends  Controller
  */
-class Controller_Blog extends Controller
+class Controller_Blog extends Controller_Base
 {
-
+	
+	public $template = 'template';
+	
 	/**
 	 * The index page
 	 * 
@@ -20,7 +22,9 @@ class Controller_Blog extends Controller
 	 */
 	public function action_index()
 	{
-		return Response::forge(View::forge('blog/index'));
-	}
+		$data['posts'] = Model_Post::find('all');
+		$data['comments'] = Model_Comment::find('all');
+		$this->template->title = 'Blog';
+		$this->template->content = View::factory('blog/index', $data);	}
 
 }

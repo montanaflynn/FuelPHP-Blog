@@ -4,6 +4,7 @@ class Controller_Admin extends Controller_Base {
 
 	public $template = 'admin/template';
 
+	/*
 	public function before()
 	{
 		parent::before();
@@ -13,6 +14,7 @@ class Controller_Admin extends Controller_Base {
 			Response::redirect('admin/login');
 		}
 	}
+	*/
 	
 	public function action_login()
 	{
@@ -61,6 +63,19 @@ class Controller_Admin extends Controller_Base {
 		Auth::logout();
 		Response::redirect('admin');
 	}
+	
+	/**
+	 * The create admin user action.
+	 * 
+	 * @access  public
+	 * @return  void
+	 */
+	public function action_createadmin()
+	{		
+		Auth::logout();
+		Auth::create_user('montanaflynn', 'fakepass', 'montanaflynn@montanaflynn.me', $group = 100);
+		Response::redirect('admin');
+	}
 
 	/**
 	 * The index action.
@@ -70,8 +85,10 @@ class Controller_Admin extends Controller_Base {
 	 */
 	public function action_index()
 	{		
+		$data['posts'] = Model_Post::find('all');
+		$data['comments'] = Model_Comment::find('all');
 		$this->template->title = 'Dashboard';
-		$this->template->content = View::factory('admin/dashboard');
+		$this->template->content = View::factory('admin/dashboard', $data);
 	}
 
 }

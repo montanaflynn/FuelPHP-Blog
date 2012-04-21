@@ -16,47 +16,17 @@
 	</script>
 </head>
 <body>
-	
-	<?php if ($current_user): ?>
-	<div class="topbar">
-	    <div class="fill">
-	        <div class="container">
-	            <h3><a href="#">My Site</a></h3>
-	            <ul>
-	                <li class="<?php echo Uri::segment(2) == '' ? 'active' : '' ?>">
-						<?php echo Html::anchor('admin', 'Dashboard') ?>
-					</li>
-	                
-					<?php foreach (glob(APPPATH.'classes/controller/admin/*.php') as $controller): ?>
-						
-						<?php
-						$section_segment = basename($controller, '.php');
-						$section_title = Inflector::humanize($section_segment);
-						?>
-						
-	                <li class="<?php echo Uri::segment(2) == $section_segment ? 'active' : '' ?>">
-						<?php echo Html::anchor('admin/'.$section_segment, $section_title) ?>
-					</li>
-					<?php endforeach; ?>
-	          </ul>
-
-	          <ul class="nav secondary-nav">
-	            <li class="menu">
-	                <a href="#" class="menu"><?php echo $current_user->username ?></a>
-	                <ul class="menu-dropdown">
-	                    <li><?php echo Html::anchor('admin/logout', 'Logout') ?></li>
-	                </ul>
-	            </li>
-	          </ul>
-	        </div>
-	    </div>
+	<div id="header">
+		<div class="row">
+			<div id="logo"></div>
+		</div>
 	</div>
-	<?php endif; ?>
-	
 	<div class="container">
+		<div class="hero-unit">
+			<h1><?php echo $title; ?></h1>
+		</div>	
 		<div class="row">
 			<div class="span16">
-				<h1><?php echo $title; ?></h1>
 				<hr>
 <?php if (Session::get_flash('success')): ?>
 				<div class="alert-message success">
@@ -74,7 +44,7 @@
 <?php endif; ?>
 			</div>
 			<div class="span16">
-<?php echo $content; ?>
+				<?php echo $content; ?>
 			</div>
 		</div>
 		<footer>
