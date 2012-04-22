@@ -9,6 +9,9 @@ class Model_Comment extends \Orm\Model
 		'created_at',
 		'updated_at',
 	);
+	
+	protected static $_belongs_to = array('post', 'user');
+	
 
 	protected static $_observers = array(
 		'Orm\Observer_CreatedAt' => array(
