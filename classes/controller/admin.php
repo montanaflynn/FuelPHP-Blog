@@ -4,7 +4,7 @@ class Controller_Admin extends Controller_Base {
 
 	public $template = 'admin/template';
 
-	/*
+	
 	public function before()
 	{
 		parent::before();
@@ -14,7 +14,7 @@ class Controller_Admin extends Controller_Base {
 			Response::redirect('admin/login');
 		}
 	}
-	*/
+	
 	
 	public function action_login()
 	{
@@ -73,7 +73,7 @@ class Controller_Admin extends Controller_Base {
 	public function action_createadmin()
 	{		
 		Auth::logout();
-		Auth::create_user('montanaflynn', 'fakepass', 'montanaflynn@montanaflynn.me', $group = 100);
+		Auth::create_user('myname', 'fakepass', 'hi@montanaflynn.me', $group = 100);
 		Response::redirect('admin');
 	}
 
