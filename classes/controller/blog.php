@@ -37,8 +37,8 @@ class Controller_Blog extends Controller_Base
 	public function action_post($slug)
 	{
 		
-		$post = Model_Post::find_by_slug($slug, array('related' => array('comments')));
-		
+		$post = Model_Post::find_by_slug($slug);
+				
 		// Lazy validation
 		if (Input::post('name') AND Input::post('email') AND Input::post('body'))
 		{
@@ -68,9 +68,9 @@ class Controller_Blog extends Controller_Base
 		else
 		{
 				
-		$data['post'] = Model_Post::find_by_slug($slug, array('related' => array('comments')));
-		$this->template->title = 'Blog Tutorial';
-		$this->template->content = View::factory('blog/post', $data);
+			$data['post'] = $post;
+			$this->template->title = 'Blog Tutorial';
+			$this->template->content = View::factory('blog/post', $data);
 				
 		}
 	}
