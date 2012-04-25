@@ -37,9 +37,11 @@ class Controller_Blog extends Controller_Base
 	public function action_post($slug)
 	{
 				
-		$data['post'] = Model_Post::find_by_slug($slug);
+		$data['post'] = Model_Post::find_by_slug($slug, array('related' => array('comments')));
 		$this->template->title = 'Blog Tutorial';
 		$this->template->content = View::factory('blog/post', $data);
+		
+		
 		
 	}
 	

@@ -4,6 +4,7 @@ class Model_Comment extends \Orm\Model
 	protected static $_properties = array(
 		'id',
 		'name',
+		'website',
 		'body',
 		'post_id',
 		'created_at',
