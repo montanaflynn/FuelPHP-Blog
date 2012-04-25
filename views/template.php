@@ -18,7 +18,7 @@
 <body>
 	<div class="container">
 		<div class="hero-unit">
-			<h1><?php echo $title; ?></h1>
+			<h1><?php echo Html::anchor('/',  $title); ?></h1>
 		</div>	
 		<div class="row">
 			<div class="span16">
