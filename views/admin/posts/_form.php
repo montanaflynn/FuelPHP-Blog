@@ -18,12 +18,12 @@
 			</div>
 		</div>
 		<div class="clearfix">
-			<?php echo Form::label('Category', 'category'); ?>
+		   <?php echo Form::label('Category', 'category_id'); ?>
 
-			<div class="input">
-				<?php echo Form::input('category', Input::post('category', isset($post) ? $post->category_id : ''), array('class' => 'span6')); ?>
+		   <div class="input">
+		      <?php echo Form::select('category_id', Input::post('category_id', isset($post) ? $post->category_id : '1'), $categories, array('class' => 'span6')); ?>
 
-			</div>
+		   </div>
 		</div>
 		<div class="actions">
 			<?php echo Form::submit('submit', 'Save', array('class' => 'btn primary')); ?>

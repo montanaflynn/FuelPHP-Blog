@@ -51,6 +51,7 @@ class Controller_Admin_Posts extends Controller_Admin
 			}
 		}
 
+		$this->template->set_global('categories', Arr::assoc_to_keyval(Model_Category::find('all'), 'id', 'name'));
 		$this->template->title = "Posts";
 		$this->template->content = View::forge('admin/posts/create');
 
@@ -94,6 +95,7 @@ class Controller_Admin_Posts extends Controller_Admin
 			$this->template->set_global('post', $post, false);
 		}
 
+		$this->template->set_global('categories', Arr::assoc_to_keyval(Model_Category::find('all'), 'id', 'name'));
 		$this->template->title = "Posts";
 		$this->template->content = View::forge('admin/posts/edit');
 
