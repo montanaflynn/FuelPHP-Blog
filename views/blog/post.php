@@ -10,7 +10,7 @@
  
 <?php foreach ($post->comments as $comment): ?>
  
-   <p><?php echo Html::anchor($comment->website, $comment->name) ?> said "<?php echo $comment->body?>"</p>
+   <p><?php if ($comment->website) { echo  Html::anchor($comment->website, $comment->name); } else { echo $comment->name; } ?> said "<?php echo $comment->body?>"</p>
  
 <?php endforeach; ?>
  
