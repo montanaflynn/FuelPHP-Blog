@@ -24,7 +24,25 @@ class Controller_Blog extends Controller_Base
 	{
 		$data['posts'] = Model_Post::find('all');
 		$data['comments'] = Model_Comment::find('all');
-		$this->template->title = 'Blog';
-		$this->template->content = View::factory('blog/index', $data);	}
-
+		$this->template->title = 'Blog Tutorial';
+		$this->template->content = View::factory('blog/index', $data);
+	}
+	
+	/**
+	 * The post page
+	 * 
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_post($slug)
+	{
+				
+		$data['post'] = Model_Post::find_by_slug($slug);
+		$this->template->title = 'Blog Tutorial';
+		$this->template->content = View::factory('blog/post', $data);
+		
+	}
+	
+	
+	
 }

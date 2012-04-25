@@ -21,7 +21,7 @@
 			<?php echo Form::label('Category', 'category'); ?>
 
 			<div class="input">
-				<?php echo Form::input('category', Input::post('category', isset($post) ? $post->category : ''), array('class' => 'span6')); ?>
+				<?php echo Form::input('category', Input::post('category', isset($post) ? $post->category_id : ''), array('class' => 'span6')); ?>
 
 			</div>
 		</div>

@@ -15,7 +15,7 @@
 
 			<td><?php echo $post->title; ?></td>
 			<td><?php echo $post->body; ?></td>
-			<td><?php echo $post->category; ?></td>
+			<td><?php echo $post->category_id; ?></td>
 			<td>
 				<?php echo Html::anchor('admin/posts/view/'.$post->id, 'View'); ?> |
 				<?php echo Html::anchor('admin/posts/edit/'.$post->id, 'Edit'); ?> |

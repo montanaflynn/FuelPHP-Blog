@@ -1,19 +1,15 @@
 <?php
-class Model_Post extends \Orm\Model
+class Model_Category extends \Orm\Model
 {
 	protected static $_properties = array(
 		'id',
-		'title',
-		'body',
-		'summary',
+		'name',
+		'description',
+		'category_parent',
 		'slug',
-		'category_id',
 		'created_at',
 		'updated_at',
 	);
-	
-	protected static $_belongs_to = array('user');
-	protected static $_has_many = array('comments');
 
 	protected static $_observers = array(
 		'Orm\Observer_CreatedAt' => array(
@@ -26,15 +22,17 @@ class Model_Post extends \Orm\Model
 		),
 		'Orm\\Observer_Slug' => array(
         'events' => array('before_insert'),
+        'source' => 'name',   
         'property' => 'slug',  
     ),
 	);
 
+
 	public static function validate($factory)
 	{
 		$val = Validation::forge($factory);
-		$val->add_field('title', 'Title', 'required|max_length[255]');
-		$val->add_field('body', 'Body', 'required');
+		$val->add_field('name', 'Name', 'required|max_length[255]');
+		$val->add_field('description', 'Description', 'required');
 
 		return $val;
 	}

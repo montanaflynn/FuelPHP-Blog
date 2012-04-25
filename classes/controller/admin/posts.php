@@ -30,7 +30,7 @@ class Controller_Admin_Posts extends Controller_Admin
 				$post = Model_Post::forge(array(
 					'title' => Input::post('title'),
 					'body' => Input::post('body'),
-					'category' => Input::post('category'),
+					'category_id' => Input::post('category_id'),
 				));
 
 				if ($post and $post->save())
@@ -65,7 +65,7 @@ class Controller_Admin_Posts extends Controller_Admin
 		{
 			$post->title = Input::post('title');
 			$post->body = Input::post('body');
-			$post->category = Input::post('category');
+			$post->category_id = Input::post('category_id');
 
 			if ($post->save())
 			{

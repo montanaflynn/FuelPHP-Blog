@@ -16,11 +16,6 @@
 	</script>
 </head>
 <body>
-	<div id="header">
-		<div class="row">
-			<div id="logo"></div>
-		</div>
-	</div>
 	<div class="container">
 		<div class="hero-unit">
 			<h1><?php echo $title; ?></h1>
