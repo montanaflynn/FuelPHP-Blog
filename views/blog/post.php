@@ -16,7 +16,7 @@
  
 <h3>Write a comment</h3>
  
-<?php echo Form::open('blog/comment/'.$post->slug) ?>
+<?php echo Form::open($post->slug) ?>
  
 <div class="row">
    <label for="name">Name:</label>
