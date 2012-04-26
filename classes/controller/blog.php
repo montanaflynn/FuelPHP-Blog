@@ -38,6 +38,10 @@ class Controller_Blog extends Controller_Base
 	{
 		
 		$post = Model_Post::find_by_slug($slug);
+		
+		if (!isset($post)) {
+			throw new HttpNotFoundException;
+		}
 				
 		// Lazy validation
 		if (Input::post('name') AND Input::post('email') AND Input::post('body'))
