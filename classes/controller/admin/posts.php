@@ -12,9 +12,8 @@ class Controller_Admin_Posts extends Controller_Admin
 
 	public function action_view($id = null)
 	{
-		$data['post'] = Model_Post::find($id);
-
 		$this->template->title = "Post";
+    $view->set('post', Model_Post::find($id), false);
 		$this->template->content = View::forge('admin/posts/view', $data);
 
 	}

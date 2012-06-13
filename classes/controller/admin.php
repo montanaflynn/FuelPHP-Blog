@@ -87,8 +87,9 @@ class Controller_Admin extends Controller_Base {
 	{		
 		$data['posts'] = Model_Post::find('all');
 		$data['comments'] = Model_Comment::find('all');
+		$data['categories'] = Model_Category::find('all');
 		$this->template->title = 'Dashboard';
-		$this->template->content = View::factory('admin/dashboard', $data);
+		$this->template->content = View::forge('admin/dashboard', $data);
 	}
 
 }

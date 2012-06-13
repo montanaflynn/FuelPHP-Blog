@@ -7,6 +7,7 @@
 
 return array(
 	'active' => 'default',
+		
 
 	/**
 	 * Base config, just need to set the DSN, username and password in env. config.

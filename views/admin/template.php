@@ -67,6 +67,7 @@
 <?php endif; ?>
 <?php if (Session::get_flash('error')): ?>
 				<div class="alert-message error">
+					<h4>Houston, we have a problem:</h4>
 					<p>
 					<?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
 					</p>

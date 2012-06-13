@@ -19,6 +19,7 @@
 	<div class="container">
 		<div class="hero-unit">
 			<h1><?php echo Html::anchor('/',  $title); ?></h1>
+			<p><a href="http://fuelphp.com">FuelPHP</a> tutorial by <a href="http://montanaflynn.me">Montana Flynn</a></p>
 		</div>	
 		<div class="row">
 			<div class="span16">

@@ -25,7 +25,7 @@ class Controller_Blog extends Controller_Base
 		$data['posts'] = Model_Post::find('all');
 		$data['comments'] = Model_Comment::find('all');
 		$this->template->title = 'Blog Tutorial';
-		$this->template->content = View::factory('blog/index', $data);
+		$this->template->content = View::forge('blog/index', $data);
 	}
 	
 	/**
@@ -74,7 +74,7 @@ class Controller_Blog extends Controller_Base
 				
 			$data['post'] = $post;
 			$this->template->title = 'Blog Tutorial';
-			$this->template->content = View::factory('blog/post', $data);
+			$this->template->content = View::forge('blog/post', $data);
 				
 		}
 	}
